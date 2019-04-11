@@ -1,0 +1,1656 @@
+{
+  "data": {
+    "vehicles": [
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|15b817e1f22b34978bd71ace8e7ea3d9",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.952034,
+                  55.044111
+                ],
+                [
+                  82.952056,
+                  55.044159
+                ],
+                [
+                  82.952103,
+                  55.044218
+                ],
+                [
+                  82.952152,
+                  55.044263
+                ],
+                [
+                  82.95226799999999,
+                  55.044332999999995
+                ],
+                [
+                  82.952392,
+                  55.044393
+                ],
+                [
+                  82.953147,
+                  55.044760999999994
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 48,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.953147,
+                  55.044760999999994
+                ],
+                [
+                  82.95324099999999,
+                  55.044807
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 12,
+                "time": 1554860450
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|2a99839ba64951196ca3a751f8208f76",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.94153399999999,
+                  55.018007
+                ],
+                [
+                  82.94087999999999,
+                  55.018277
+                ],
+                [
+                  82.94082399999999,
+                  55.018299999999996
+                ],
+                [
+                  82.94079599999999,
+                  55.018311999999995
+                ],
+                [
+                  82.940489,
+                  55.018437999999996
+                ],
+                [
+                  82.94045299999999,
+                  55.018454
+                ],
+                [
+                  82.940113,
+                  55.018594
+                ],
+                [
+                  82.939874,
+                  55.018693
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 60,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.939874,
+                  55.018693
+                ],
+                [
+                  82.939874,
+                  55.018693
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 0,
+                "time": 1554860462
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|4044cff3f36078411ac30c2624336c70",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.947554,
+                  55.015304
+                ],
+                [
+                  82.948697,
+                  55.014824999999995
+                ],
+                [
+                  82.948835,
+                  55.014933
+                ],
+                [
+                  82.949035,
+                  55.015080999999995
+                ],
+                [
+                  82.949207,
+                  55.015204999999995
+                ],
+                [
+                  82.949314,
+                  55.01529
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 36,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.949314,
+                  55.01529
+                ],
+                [
+                  82.94955,
+                  55.01548
+                ],
+                [
+                  82.950059,
+                  55.015888999999994
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 24,
+                "time": 1554860438
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|6037e8ade7ccae1b85b5c488bf77fc74",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96461599999999,
+                  55.041123
+                ],
+                [
+                  82.964486,
+                  55.041149
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 1,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.964486,
+                  55.041149
+                ],
+                [
+                  82.96356899999999,
+                  55.041328
+                ],
+                [
+                  82.963473,
+                  55.041346999999995
+                ],
+                [
+                  82.96310799999999,
+                  55.041418
+                ],
+                [
+                  82.962899,
+                  55.041463
+                ],
+                [
+                  82.96244399999999,
+                  55.041559
+                ],
+                [
+                  82.962268,
+                  55.041593999999996
+                ],
+                [
+                  82.961775,
+                  55.041695
+                ],
+                [
+                  82.961438,
+                  55.041762
+                ],
+                [
+                  82.96137999999999,
+                  55.041773
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 46,
+                "time": 1554860403
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96137999999999,
+                  55.041773
+                ],
+                [
+                  82.961018,
+                  55.041844999999995
+                ],
+                [
+                  82.96100899999999,
+                  55.041847
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 5,
+                "time": 1554860449
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96100899999999,
+                  55.041847
+                ],
+                [
+                  82.96100899999999,
+                  55.041847
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 7,
+                "time": 1554860454
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96100899999999,
+                  55.041847
+                ],
+                [
+                  82.960917,
+                  55.041864999999994
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 1,
+                "time": 1554860461
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|6d0eb884ca63d0fadc657918bb6ab0f0",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.97019,
+                  55.032035
+                ],
+                [
+                  82.969839,
+                  55.031772
+                ],
+                [
+                  82.969171,
+                  55.031208
+                ],
+                [
+                  82.969053,
+                  55.031116999999995
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 33,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.969053,
+                  55.031116999999995
+                ],
+                [
+                  82.968851,
+                  55.03096
+                ],
+                [
+                  82.968187,
+                  55.030417
+                ],
+                [
+                  82.968007,
+                  55.030271
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 27,
+                "time": 1554860435
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|9c7b5762281bf8f1c011271ec9c145f8",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.954391,
+                  55.019344
+                ],
+                [
+                  82.95437199999999,
+                  55.019329
+                ],
+                [
+                  82.95351099999999,
+                  55.01864
+                ],
+                [
+                  82.953008,
+                  55.018246
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 24,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.953008,
+                  55.018246
+                ],
+                [
+                  82.952578,
+                  55.017908999999996
+                ],
+                [
+                  82.952497,
+                  55.017846
+                ],
+                [
+                  82.952258,
+                  55.017649999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 36,
+                "time": 1554860426
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|f970470d638cd3dff2feec6461264577",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.920642,
+                  55.028794
+                ],
+                [
+                  82.920819,
+                  55.028129
+                ],
+                [
+                  82.920988,
+                  55.027519
+                ],
+                [
+                  82.92107999999999,
+                  55.027411
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 43,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.92107999999999,
+                  55.027411
+                ],
+                [
+                  82.921139,
+                  55.027341
+                ],
+                [
+                  82.921187,
+                  55.02729
+                ],
+                [
+                  82.921235,
+                  55.027238
+                ],
+                [
+                  82.921258,
+                  55.027210999999994
+                ],
+                [
+                  82.921281,
+                  55.027189
+                ],
+                [
+                  82.921318,
+                  55.027150999999996
+                ],
+                [
+                  82.921364,
+                  55.027122
+                ],
+                [
+                  82.921493,
+                  55.027051
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 17,
+                "time": 1554860445
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|8cf47612f27fda80a3ef6898bfbdd354",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.953075,
+                  55.043279
+                ],
+                [
+                  82.953319,
+                  55.043229
+                ],
+                [
+                  82.953816,
+                  55.043129
+                ],
+                [
+                  82.95418699999999,
+                  55.043054
+                ],
+                [
+                  82.95428299999999,
+                  55.043034999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 21,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.95428299999999,
+                  55.043034999999996
+                ],
+                [
+                  82.954365,
+                  55.043019
+                ],
+                [
+                  82.954653,
+                  55.042961
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 5,
+                "time": 1554860423
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.954653,
+                  55.042961
+                ],
+                [
+                  82.954653,
+                  55.042961
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 7,
+                "time": 1554860428
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.954653,
+                  55.042961
+                ],
+                [
+                  82.95466499999999,
+                  55.042958999999996
+                ],
+                [
+                  82.955023,
+                  55.042887
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 5,
+                "time": 1554860435
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.955023,
+                  55.042887
+                ],
+                [
+                  82.956885,
+                  55.042513
+                ],
+                [
+                  82.957122,
+                  55.042466
+                ],
+                [
+                  82.957264,
+                  55.042437
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 22,
+                "time": 1554860440
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|8e3d56199c4d52f52f9cd9b0886d7131",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.930004,
+                  55.023672
+                ],
+                [
+                  82.92985,
+                  55.023740999999994
+                ],
+                [
+                  82.92943799999999,
+                  55.023906999999994
+                ],
+                [
+                  82.929316,
+                  55.023956999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 17,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.929316,
+                  55.023956999999996
+                ],
+                [
+                  82.92918399999999,
+                  55.024010999999994
+                ],
+                [
+                  82.927274,
+                  55.024797
+                ],
+                [
+                  82.92715199999999,
+                  55.024848
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 40,
+                "time": 1554860419
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.92715199999999,
+                  55.024848
+                ],
+                [
+                  82.92704499999999,
+                  55.024891
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 3,
+                "time": 1554860459
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|4600d3bd963dfa92fdd5ecdb8aaf773e",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.978815,
+                  55.057634
+                ],
+                [
+                  82.978914,
+                  55.057677999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 2,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.978914,
+                  55.057677999999996
+                ],
+                [
+                  82.979261,
+                  55.057834
+                ],
+                [
+                  82.979969,
+                  55.05815
+                ],
+                [
+                  82.980552,
+                  55.058426999999995
+                ],
+                [
+                  82.98065799999999,
+                  55.058476
+                ],
+                [
+                  82.980947,
+                  55.058609999999994
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 38,
+                "time": 1554860404
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.980947,
+                  55.058609999999994
+                ],
+                [
+                  82.981978,
+                  55.059087999999996
+                ],
+                [
+                  82.982095,
+                  55.059143999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 20,
+                "time": 1554860442
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|a79c248a89b42d04e184447a0ba2d127",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.965892,
+                  55.05169
+                ],
+                [
+                  82.96582099999999,
+                  55.051657
+                ],
+                [
+                  82.965779,
+                  55.051635999999995
+                ],
+                [
+                  82.965741,
+                  55.051618999999995
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 4,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.965741,
+                  55.051618999999995
+                ],
+                [
+                  82.964552,
+                  55.051049
+                ],
+                [
+                  82.96350799999999,
+                  55.050554
+                ],
+                [
+                  82.96334,
+                  55.050475999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 56,
+                "time": 1554860406
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|f49cabca77dbb7162c9c485e185cb289",
+            "Transport": {
+              "id": "2161326708",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.921178,
+                  55.028154
+                ],
+                [
+                  82.92115,
+                  55.028253
+                ],
+                [
+                  82.920909,
+                  55.029125
+                ],
+                [
+                  82.920851,
+                  55.029323999999995
+                ],
+                [
+                  82.92069,
+                  55.02991
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 43,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.92069,
+                  55.02991
+                ],
+                [
+                  82.920485,
+                  55.030654999999996
+                ],
+                [
+                  82.92044,
+                  55.030815999999994
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 17,
+                "time": 1554860445
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|d9c2f943b4396db5ba4550a807b52269",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.98732,
+                  55.061564
+                ],
+                [
+                  82.988011,
+                  55.061887999999996
+                ],
+                [
+                  82.988238,
+                  55.061997999999996
+                ],
+                [
+                  82.988314,
+                  55.062034
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 17,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.988314,
+                  55.062034
+                ],
+                [
+                  82.98839799999999,
+                  55.062073999999996
+                ],
+                [
+                  82.988615,
+                  55.062177999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 8,
+                "time": 1554860419
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.988615,
+                  55.062177999999996
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 6,
+                "time": 1554860427
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "FeatureCollection",
+        "properties": {
+          "VehicleMetaData": {
+            "id": "1651901|f2381424de62ffb6995ede52e56b3c47",
+            "Transport": {
+              "id": "2161326704",
+              "lineId": "2161326720",
+              "name": "10",
+              "Types": [
+                "trolleybus"
+              ],
+              "type": "trolleybus"
+            }
+          }
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96184099999999,
+                  55.025287999999996
+                ],
+                [
+                  82.961911,
+                  55.025344
+                ],
+                [
+                  82.96208,
+                  55.025479
+                ],
+                [
+                  82.96296699999999,
+                  55.026191999999995
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 23,
+                "time": 1554860402
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.96296699999999,
+                  55.026191999999995
+                ],
+                [
+                  82.96338899999999,
+                  55.026531
+                ],
+                [
+                  82.964517,
+                  55.027445
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 30,
+                "time": 1554860425
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  82.964517,
+                  55.027445
+                ],
+                [
+                  82.964715,
+                  55.027604999999994
+                ],
+                [
+                  82.9648,
+                  55.027674
+                ],
+                [
+                  82.96480299999999,
+                  55.027676
+                ]
+              ]
+            },
+            "properties": {
+              "type": "Feature",
+              "TrajectorySegmentMetaData": {
+                "duration": 7,
+                "time": 1554860455
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "regionInfo": {
+      "id": 102066,
+      "type": 8,
+      "parent_id": 65,
+      "capital_id": 0,
+      "geo_parent_id": 0,
+      "city_id": 65,
+      "name": "dzerzhinsky-district",
+      "native_name": "",
+      "iso_name": "",
+      "is_main": false,
+      "en_name": "Dzerzhinsky District",
+      "short_en_name": "",
+      "phone_code": "",
+      "phone_code_old": "",
+      "zip_code": "",
+      "population": 0,
+      "synonyms": "",
+      "latitude": 55.062199,
+      "longitude": 83.012642,
+      "latitude_size": 0.067926,
+      "longitude_size": 0.142994,
+      "zoom": 14,
+      "tzname": "Asia/Novosibirsk",
+      "official_languages": "ru",
+      "widespread_languages": "ru",
+      "suggest_list": [],
+      "is_eu": false,
+      "services_names": [],
+      "names": {
+        "ablative": "",
+        "accusative": "Дзержинский район",
+        "dative": "Дзержинскому району",
+        "directional": "",
+        "genitive": "Дзержинского района",
+        "instrumental": "Дзержинским районом",
+        "locative": "",
+        "nominative": "Дзержинский район",
+        "preposition": "в",
+        "prepositional": "Дзержинском районе"
+      },
+      "parent": {
+        "id": 65,
+        "type": 6,
+        "parent_id": 121037,
+        "capital_id": 0,
+        "geo_parent_id": 0,
+        "city_id": 65,
+        "name": "novosibirsk",
+        "native_name": "",
+        "iso_name": "RU OVB",
+        "is_main": true,
+        "en_name": "Novosibirsk",
+        "short_en_name": "NSK",
+        "phone_code": "383",
+        "phone_code_old": "",
+        "zip_code": "",
+        "population": 1612833,
+        "synonyms": "",
+        "latitude": 55.030199,
+        "longitude": 82.92043,
+        "latitude_size": 0.398742,
+        "longitude_size": 0.40876,
+        "zoom": 12,
+        "tzname": "Asia/Novosibirsk",
+        "official_languages": "ru",
+        "widespread_languages": "ru",
+        "suggest_list": [],
+        "is_eu": false,
+        "services_names": [
+          "bs",
+          "yaca",
+          "weather",
+          "afisha",
+          "maps",
+          "tv",
+          "ad",
+          "etrain",
+          "delivery",
+          "route"
+        ],
+        "names": {
+          "ablative": "",
+          "accusative": "Новосибирск",
+          "dative": "Новосибирску",
+          "directional": "",
+          "genitive": "Новосибирска",
+          "instrumental": "Новосибирском",
+          "locative": "",
+          "nominative": "Новосибирск",
+          "preposition": "в",
+          "prepositional": "Новосибирске"
+        },
+        "parent": {
+          "id": 11316,
+          "type": 5,
+          "parent_id": 59,
+          "capital_id": 65,
+          "geo_parent_id": 0,
+          "city_id": 65,
+          "name": "novosibirsk-oblast",
+          "native_name": "",
+          "iso_name": "RU-NVS",
+          "is_main": true,
+          "en_name": "Novosibirsk Oblast",
+          "short_en_name": "RU-NVS",
+          "phone_code": "383",
+          "phone_code_old": "",
+          "zip_code": "",
+          "population": 2788849,
+          "synonyms": "",
+          "latitude": 55.582396,
+          "longitude": 79.264861,
+          "latitude_size": 3.944718,
+          "longitude_size": 10.027543,
+          "zoom": 6,
+          "tzname": "Asia/Novosibirsk",
+          "official_languages": "ru",
+          "widespread_languages": "ru",
+          "suggest_list": [
+            65,
+            11314,
+            20100,
+            20103,
+            11317,
+            20098,
+            20101,
+            20105,
+            20106,
+            20107,
+            20099,
+            20104
+          ],
+          "is_eu": false,
+          "services_names": [
+            "bs",
+            "yaca",
+            "ad"
+          ],
+          "names": {
+            "ablative": "",
+            "accusative": "Новосибирскую область",
+            "dative": "Новосибирской области",
+            "directional": "",
+            "genitive": "Новосибирской области",
+            "instrumental": "Новосибирской областью",
+            "locative": "",
+            "nominative": "Новосибирская область",
+            "preposition": "в",
+            "prepositional": "Новосибирской области"
+          },
+          "parent": {
+            "id": 225,
+            "type": 3,
+            "parent_id": 10001,
+            "capital_id": 213,
+            "geo_parent_id": 0,
+            "city_id": 213,
+            "name": "russia",
+            "native_name": "",
+            "iso_name": "RU",
+            "is_main": false,
+            "en_name": "Russia",
+            "short_en_name": "RU",
+            "phone_code": "7",
+            "phone_code_old": "",
+            "zip_code": "",
+            "population": 146880432,
+            "synonyms": "Russian Federation,Российская Федерация",
+            "latitude": 61.698653,
+            "longitude": 99.505405,
+            "latitude_size": 40.700127,
+            "longitude_size": 171.643239,
+            "zoom": 3,
+            "tzname": "",
+            "official_languages": "ru",
+            "widespread_languages": "ru",
+            "suggest_list": [
+              213,
+              2,
+              65,
+              54,
+              47,
+              43,
+              66,
+              51,
+              56,
+              172,
+              39,
+              62
+            ],
+            "is_eu": false,
+            "services_names": [
+              "bs",
+              "yaca",
+              "ad"
+            ],
+            "names": {
+              "ablative": "",
+              "accusative": "Россию",
+              "dative": "России",
+              "directional": "",
+              "genitive": "России",
+              "instrumental": "Россией",
+              "locative": "",
+              "nominative": "Россия",
+              "preposition": "в",
+              "prepositional": "России"
+            },
+            "parent": null,
+            "ename": "russia"
+          },
+          "ename": "novosibirsk-oblast"
+        },
+        "ename": "novosibirsk"
+      },
+      "ename": "dzerzhinsky-district"
+    }
+  }
+}

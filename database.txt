@@ -1,0 +1,26 @@
+CREATE TABLE stops (
+    stop_id varchar PRIMARY KEY,
+    name varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE ROUTES (
+    route_id varchar PRIMARY KEY,
+    thread_id varchar,
+    name varchar,
+    type varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE queue (
+    id serial PRIMARY KEY,
+    type varchar,
+    data_id varchar,
+    thread_id varchar,
+);
+
+https://yandex.ru/maps/214/dolgoprudniy/?masstransit%5BrouteId%5D=2037271798&masstransit%5BthreadId%5D=2037271138
