@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 
+__author__ = "Yury D."
+__credits__ = ["Yury D."]
+__license__ = "MIT"
+__version__ = "0.0.2"
+__maintainer__ = "Yury D."
+__email__ = "TheOwlSoul@gmail.com"
+__status__ = "Alpha"
+
 import psycopg2
 import sys
 import time
+import argparse
 
 database_settings = {
     'db_name': 'yandex_transport',
@@ -23,7 +32,6 @@ def get_queue(db_settings):
                                 "password='" + db_settings['db_password'] + "'")
     except Exception as e:
         print("Exception (connect to database):" + str(e))
-        conn.close()
         sys.exit(1)
 
     result = None
@@ -41,6 +49,37 @@ def get_queue(db_settings):
     return result
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description="Show current queue from database. Helper utility script.",
+                                     formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument("-v", "--version", action="store_true", default=False,
+                        help="show version info")
+    parser.add_argument("--database", metavar="DB_NAME", default=database_settings['db_name'],
+                        help="Database name, default is " + database_settings['db_name'])
+    parser.add_argument("--db_host", metavar="DB_HOST", default=database_settings['db_host'],
+                        help="Database host, default is " + database_settings['db_host'])
+    parser.add_argument("--db_port", metavar="DB_PORT", default=database_settings['db_port'],
+                        help="Database port, default is " + str(database_settings['db_port']))
+    parser.add_argument("--db_user", metavar="DB_USER", default=database_settings['db_user'],
+                        help="Database username, default is " + database_settings['db_user'])
+    parser.add_argument("--db_password", metavar="PASS", default=database_settings['db_password'],
+                        help="Database password, default is " + database_settings['db_password'])
+    parser.add_argument("--delay", metavar="DELAY", default=delay_time,
+                        help="Delay between queries, default is " + str(delay_time))
+
+    args = parser.parse_args()
+    if args.version:
+        print(__version__)
+        sys.exit(0)
+
+    database_settings["db_name"] = args.database
+    database_settings["db_host"] = args.db_host
+    database_settings["db_port"] = int(args.db_port)
+    database_settings["db_user"] = args.db_user
+    database_settings["db_password"] = args.db_password
+
+    delay_time = int(args.delay)
+
     while True:
         queue = get_queue(database_settings)
         for i, line in enumerate(queue):

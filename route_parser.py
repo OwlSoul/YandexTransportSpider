@@ -88,11 +88,11 @@ def parse_route(yandex_route_id, yandex_thread_id, db_settings, ytproxy_host, yt
         print("Inserting stop data into database...")
         sql_query = "INSERT INTO routes(route_id, name, type, timestamp, data) " \
                     "VALUES (" + \
-                    "'" + route_id + "'" + "," + \
-                    "'" + route_name + "'" + "," + \
-                    "'" + route_type + "'" + "," + \
+                    "'" + route_id.translate(str.maketrans({"'":r"''"})) + "'" + "," + \
+                    "'" + route_name.translate(str.maketrans({"'":r"''"})) + "'" + "," + \
+                    "'" + route_type.translate(str.maketrans({"'":r"''"})) + "'" + "," + \
                     "TIMESTAMP '" + str(datetime.datetime.now()) + "'," \
-                    "'" + json.dumps(data) + "'" + \
+                    "'" + json.dumps(data).translate(str.maketrans({"'":r"''"})) + "'" + \
                     ")"
         try:
             cur.execute(sql_query)

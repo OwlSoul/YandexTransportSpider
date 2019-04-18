@@ -91,11 +91,11 @@ def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_ov
         print("Inserting stop data into database...")
         sql_query = "INSERT INTO stops(stop_id, name, region, timestamp, data) " \
                     "VALUES (" + \
-                    "'" + stop_id + "'" + "," + \
-                    "'" + stop_name + "'" + "," + \
-                    "'" + region + "'" + "," + \
+                    "'" + stop_id.translate(str.maketrans({"'":r"''"}))+ "'" + "," + \
+                    "'" + stop_name.translate(str.maketrans({"'":r"''"})) + "'" + "," + \
+                    "'" + region.translate(str.maketrans({"'":r"''"})) + "'" + "," + \
                     "TIMESTAMP '" +str(datetime.datetime.now()) + "'," \
-                    "'" + json.dumps(data) + "'" + \
+                    "'" + json.dumps(data).translate(str.maketrans({"'":r"''"})) + "'" + \
                     ")"
         try:
             cur.execute(sql_query)
