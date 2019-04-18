@@ -1,3 +1,6 @@
+CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
+
+
 CREATE DATABASE yandex_transport;
 
 \c yandex_transport;
