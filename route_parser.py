@@ -10,7 +10,7 @@ def form_route_url(route_id, thread_id):
     return 'https://yandex.ru/maps/?masstransit[routeId]=' + route_id + '&' + \
             'masstransit[threadId]=' + thread_id
 
-def parse_route(yandex_route_id, yandex_thread_id, force_overwrite=False):
+def parse_route(yandex_route_id, yandex_thread_id, db_settings, ytproxy_host, ytproxy_port, force_overwrite=False):
     route_id = yandex_route_id
     thread_id = yandex_thread_id
     url = form_route_url(route_id, thread_id)
@@ -18,9 +18,13 @@ def parse_route(yandex_route_id, yandex_thread_id, force_overwrite=False):
     print("ID:", route_id)
 
     try:
-        conn = psycopg2.connect("dbname='yandex_transport' user='yandex_transport' host='localhost' password='password'")
+        conn = psycopg2.connect(dbname=db_settings['db_name'],
+                                host=db_settings['db_host'],
+                                user=db_settings['db_user'],
+                                port=db_settings['db_port'],
+                                password=db_settings['db_password'])
     except Exception as e:
-        print("Exception (connect to database):" + str(e))
+        print("Exception (connect to database in parse_route):" + str(e))
         return 1
 
     cur = conn.cursor()
@@ -43,7 +47,7 @@ def parse_route(yandex_route_id, yandex_thread_id, force_overwrite=False):
 
     try:
         print("Getting data...")
-        proxy = YandexTransportProxy('127.0.0.1', 25555)
+        proxy = YandexTransportProxy(ytproxy_host, ytproxy_port)
         print("URL:", url)
         data = proxy.get_route_info(url)
         #data = json.load(open('route_troll_10_nsk.json', 'r', encoding='utf-8'))

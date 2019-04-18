@@ -1,3 +1,7 @@
+CREATE DATABASE yandex_transport;
+
+\c yandex_transport;
+
 CREATE TABLE stops (
     stop_id varchar PRIMARY KEY,
     name varchar,
@@ -20,7 +24,10 @@ CREATE TABLE queue (
     id serial PRIMARY KEY,
     type varchar,
     data_id varchar,
-    thread_id varchar,
+    thread_id varchar
 );
 
-https://yandex.ru/maps/214/dolgoprudniy/?masstransit%5BrouteId%5D=2037271798&masstransit%5BthreadId%5D=2037271138
+GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON DATABASE yandex_transport TO yandex_transport;

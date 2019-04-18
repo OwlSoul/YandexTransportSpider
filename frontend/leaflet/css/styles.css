@@ -1,0 +1,29 @@
+#mapid {
+    width: 95%; 
+    height: 600px; 
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #777777;
+    padding: 10px;
+  }
+
+.center-text {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .flex-container {
+    display: flex;
+  }
+
+  .column-side {
+    flex: 20%;
+  }
+
+  .column-center {
+    flex: 60%;
+  }

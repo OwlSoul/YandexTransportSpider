@@ -10,16 +10,20 @@ from yandex_transport_webdriver_api import YandexTransportProxy
 def form_stop_url(stop_id):
     return 'https://yandex.ru/maps/?masstransit[stopId]=' + stop_id
 
-def parse_stop(yandex_stop_id, force_overwrite=False):
+def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_overwrite=False):
     url = form_stop_url(yandex_stop_id)
     stop_id = yandex_stop_id
     print ("ID: " + yandex_stop_id)
 
     #stop_id = 'stop__9647487' # Get from CLI instead, or make it a function.
     try:
-        conn = psycopg2.connect("dbname='yandex_transport' user='yandex_transport' host='localhost' password='password'")
+        conn = psycopg2.connect(dbname=db_settings['db_name'],
+                                host=db_settings['db_host'],
+                                user=db_settings['db_user'],
+                                port=db_settings['db_port'],
+                                password=db_settings['db_password'])
     except Exception as e:
-        print("Exception (connect to database):" + str(e))
+        print("Exception (connect to database in parse_stop):" + str(e))
         return 1
 
     cur = conn.cursor()
@@ -41,7 +45,7 @@ def parse_stop(yandex_stop_id, force_overwrite=False):
 
     try:
         print ("Getting data...")
-        proxy = YandexTransportProxy('127.0.0.1', 25555)
+        proxy = YandexTransportProxy(ytproxy_host, ytproxy_port)
         data = proxy.get_stop_info(url)
         #data = json.load(open('stop_maryino.json', 'r', encoding='utf-8'))
     except Exception as e:

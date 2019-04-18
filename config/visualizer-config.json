@@ -1,0 +1,18 @@
+{
+    "listen_host": "127.0.0.1",
+    "listen_port": 8090,
+    "preload_data": false,
+
+    "city_name": "SYKTYVKAR",
+    "center_coords": [61.6646, 50.8528],
+    "center_zoom": 12,
+
+    "database": "yandex_transport",
+    "db_host": "127.0.0.1",
+    "db_port": 5432,
+    "db_user": "yandex_transport",
+    "db_password": "password",
+
+    "draw_delay": 5,
+    "update_interval": 60
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+
+</head>
+
+<body>
+    <p class="center-text"> <b>CITY: <span id="city">YAKUTSK</span></b></p>
+    <div class="flex-container">
+      <div class="column-side">
+          Status: <span id="status"> DRAWING </span>
+          </br>
+          </br>
+          Stops: <span id="stops"> </span>
+          </br>
+          </br>
+          Threads: <span id="routes"> </span>
+          </br>
+          Buses: <span id="buses-counter"> </span>
+          </br>
+          Tramways: <span id="tramways-counter"> </span>
+          </br>
+          Trolleybuses: <span id="trolleybuses-counter"> </span>
+          </br>
+          Minibuses: <span id="minibuses-counter"> </span>
+          </br>
+      </div>
+      <div class="column-center">
+        <div class="center" id="mapid"></div>
+      </div>
+      <div class="column-side">
+          Yohooo
+      </div>
+    </div> 
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
