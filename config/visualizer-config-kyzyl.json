@@ -3,11 +3,11 @@
     "listen_port": 8090,
     "preload_data": false,
 
-    "city_name": "MOSCOW",
-    "center_coords": [55.7518, 37.6553],
-    "center_zoom": 11,
+    "city_name": "KYZYL",
+    "center_coords": [51.6959, 94.4709],
+    "center_zoom": 12,
 
-    "database": "yandex_transport_moscow",
+    "database": "yandex_transport_kyzyl",
     "db_host": "127.0.0.1",
     "db_port": 5432,
     "db_user": "yandex_transport",

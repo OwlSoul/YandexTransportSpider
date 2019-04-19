@@ -37,4 +37,5 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON DATABASE yandex_transport TO yandex_transport;
 
 
+/c postgres;
 ALTER DATABASE yandex_transport RENAME TO whatever_you_want;

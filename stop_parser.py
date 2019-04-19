@@ -10,7 +10,7 @@ from yandex_transport_webdriver_api import YandexTransportProxy
 def form_stop_url(stop_id):
     return 'https://yandex.ru/maps/?masstransit[stopId]=' + stop_id
 
-def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_overwrite=False):
+def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, timeout, force_overwrite=False):
     url = form_stop_url(yandex_stop_id)
     stop_id = yandex_stop_id
     print ("ID: " + yandex_stop_id)
@@ -46,7 +46,7 @@ def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_ov
     try:
         print ("Getting data...")
         proxy = YandexTransportProxy(ytproxy_host, ytproxy_port)
-        data = proxy.get_stop_info(url)
+        data = proxy.get_stop_info(url, timeout=timeout)
         #data = json.load(open('stop_maryino.json', 'r', encoding='utf-8'))
     except Exception as e:
         print("Exception (obtain data):" + str(e))
@@ -162,10 +162,16 @@ def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_ov
     print("")
 
     toponyms = []
+    # Old toponym search response object
     try:
         toponyms = data['data']['toponymSearchResponse']['items']
     except:
-        pass
+        print("No 'toponymSearchResponse' field.")
+    # New toponym search response object
+    try:
+        toponyms.append(data['data']['searchResult'])
+    except:
+        print("No 'searchResult' field.")
     # Nearest stops: METRO
     nearest_stops = []
     queue_values = []
@@ -215,7 +221,7 @@ def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, force_ov
     cur.close()
     conn.close()
 
-    print("STOP " + stop_id + "," + stop_name + " : PARSING COMPLETE!")
+    print("STOP " + stop_id + ", " + stop_name + " : PARSING COMPLETE!")
 
     return 0
 

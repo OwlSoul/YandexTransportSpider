@@ -27,6 +27,9 @@ class Application:
         self.retry_limit = 5
         self.retry_sleep = 60
 
+        # Query timeout
+        self.query_timeout = 60
+
         # Database settings
         self.database_settings = {
             'db_name': 'yandex_transport',
@@ -198,15 +201,21 @@ class Application:
 
         print("SPIDER STARTED")
 
-        res = parse_stop(self.start_id, db_settings, self.ytproxy_host, self.ytproxy_port)
+        res = parse_stop(self.start_id, db_settings,
+                         self.ytproxy_host, self.ytproxy_port,
+                         timeout=self.query_timeout)
         if res == 1:
             sys.exit(1)
 
         if res != 2:
             wait_time = random.randint(self.delay_lower, self.delay_upper)
+            print("Waiting " + str(wait_time) + " secs.")
+            print("---------------------------------------------------------------------------------------------------")
+            print("")
             for i in range(0, wait_time):
                 if self.is_running:
                     time.sleep(1)
+
 
         # Counter for retry in case of Exception
         retry_counter = 0
@@ -216,25 +225,32 @@ class Application:
             query_type, query_data_id, query_thread_id = self.get_record_from_queue(db_settings)
             print("Type:", query_type, ";", "ID:", query_data_id)
             if query_data_id is None:
-                print("query_data_id is None, I'll stop here.")
+                print("The query_data_id is None, this usually means that queue is empty at last.\n"
+                      "I'll stop here, my job is done.")
                 sys.exit(0)
 
             if query_type == 'stop':
-                res = parse_stop(query_data_id, db_settings, self.ytproxy_host, self.ytproxy_port)
+                res = parse_stop(query_data_id, db_settings,
+                                 self.ytproxy_host, self.ytproxy_port,
+                                 timeout=self.query_timeout)
             elif query_type == 'route':
-                res = parse_route(query_data_id, query_thread_id, db_settings, self.ytproxy_host, self.ytproxy_port)
+                res = parse_route(query_data_id, query_thread_id, db_settings,
+                                  self.ytproxy_host, self.ytproxy_port,
+                                  timeout=self.query_timeout)
 
             if res == 1:
                 retry_counter += 1
                 if retry_counter > self.retry_limit:
                     print("There is a problem with getting data from the server, aborting spider for now")
+                    sys.exit(1)
                 else:
                     print("Failed to get data, spider will chillax and relax for " +
-                          str(self.retry_limit) +
+                          str(self.retry_sleep) +
                           " seconds now, bro.")
                     for i in range(0, self.retry_sleep):
                         if self.is_running:
                             time.sleep(1)
+                    continue
 
             else:
                 retry_counter = 0
