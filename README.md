@@ -22,8 +22,6 @@ Small **isolated**(!!!) town (Yakutsk, Chita, Syktyvkar, Ky... Kyzyl, god bless 
 
 Spider can be stopped and resumed at any time, giving him the same starting point or another (he's smart, he can figure out things), just do not touch the database - spiders queue is also there (boo, BOOO, bad patterm, BOOO!). I personally run this thing at the moment in some big city, and in the evening I look at the huge graph and get my doze of excitement (I love huge graphs).
 
-Паука, кстати, можно остановить в любой момент, и потом продолжить указав новую стартовую точку, или ту же самую (он там сам разберется), главное не трогать и не изменять базу - очередь запросов он тоже хранит в ней (бууу, буууу, плохой паттерн, бууууу!!!). Я лично запускаю его на каком-то крупном городе когда выхожу из дома, а вечером прихожу и "прусь на разросшийся граф".
-
 ## How do I shot web? Making the spider work.
  
  Spider needs three things:
