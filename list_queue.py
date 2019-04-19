@@ -41,12 +41,25 @@ def get_queue(db_settings):
         cur.execute(sql_query)
         result = cur.fetchall()
     except Exception as e:
-        print("Exception (delete queue item):" + str(e))
-        pass
+        print("Exception (get queue, list):" + str(e))
+
+    sql_query = "SELECT count(*) FROM (SELECT id FROM queue WHERE type='stop') AS sq1"
+    try:
+        cur.execute(sql_query)
+        result_stops = cur.fetchall()
+    except Exception as e:
+        print("Exception (get queue, number of stops):" + str(e))
+
+    sql_query = "SELECT count(*) FROM (SELECT id FROM queue WHERE type='route') AS sq1"
+    try:
+        cur.execute(sql_query)
+        result_routes = cur.fetchall()
+    except Exception as e:
+        print("Exception (get queue, number of routes):" + str(e))
 
     conn.close()
 
-    return result
+    return result, result_stops[0][0], result_routes[0][0]
 
 if __name__ == '__main__':
 
@@ -81,8 +94,10 @@ if __name__ == '__main__':
     delay_time = int(args.delay)
 
     while True:
-        queue = get_queue(database_settings)
+        queue, stops_cnt, routes_cnt = get_queue(database_settings)
         for i, line in enumerate(queue):
             print(i, ":", line)
+        print("Total stops in queue  :", stops_cnt)
+        print("Total routes in queue :", routes_cnt)
         print("")
         time.sleep(delay_time)

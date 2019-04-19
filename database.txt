@@ -1,6 +1,7 @@
 CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
 
 
+
 CREATE DATABASE yandex_transport;
 
 \c yandex_transport;
@@ -34,3 +35,6 @@ GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON DATABASE yandex_transport TO yandex_transport;
+
+
+ALTER DATABASE yandex_transport RENAME TO whatever_you_want;

@@ -23,6 +23,10 @@ class Application:
         # "Is application running" flag
         self.is_running = True
 
+        # Retry limit and wait time
+        self.retry_limit = 5
+        self.retry_sleep = 60
+
         # Database settings
         self.database_settings = {
             'db_name': 'yandex_transport',
@@ -187,21 +191,25 @@ class Application:
         self.delay_lower = int(args.delay_lower)
         self.delay_upper = int(args.delay_upper)
 
-        self.start_id = args.stop_id
+        self.start_id = str(args.stop_id)
 
-    def run(self, db_settings, start_id):
+    def run(self, db_settings):
         self.parse_args()
 
         print("SPIDER STARTED")
 
-        res = parse_stop(start_id, db_settings, self.ytproxy_host, self.ytproxy_port)
+        res = parse_stop(self.start_id, db_settings, self.ytproxy_host, self.ytproxy_port)
         if res == 1:
             sys.exit(1)
 
         if res != 2:
-            for i in range(0, 60):
+            wait_time = random.randint(self.delay_lower, self.delay_upper)
+            for i in range(0, wait_time):
                 if self.is_running:
                     time.sleep(1)
+
+        # Counter for retry in case of Exception
+        retry_counter = 0
 
         while self.is_running:
 
@@ -213,12 +221,23 @@ class Application:
 
             if query_type == 'stop':
                 res = parse_stop(query_data_id, db_settings, self.ytproxy_host, self.ytproxy_port)
-                if res == 1:
-                    sys.exit(1)
             elif query_type == 'route':
                 res = parse_route(query_data_id, query_thread_id, db_settings, self.ytproxy_host, self.ytproxy_port)
-                if res == 1:
-                    sys.exit(1)
+
+            if res == 1:
+                retry_counter += 1
+                if retry_counter > self.retry_limit:
+                    print("There is a problem with getting data from the server, aborting spider for now")
+                else:
+                    print("Failed to get data, spider will chillax and relax for " +
+                          str(self.retry_limit) +
+                          " seconds now, bro.")
+                    for i in range(0, self.retry_sleep):
+                        if self.is_running:
+                            time.sleep(1)
+
+            else:
+                retry_counter = 0
 
             self.delete_from_queue(db_settings, query_type, query_data_id)
             try:
@@ -241,6 +260,5 @@ class Application:
 if __name__=='__main__':
     app = Application()
     # Сыктывкар, Гимназия Искусств
-    app.start_id =  '1543169232'
-    app.run(app.database_settings, app.start_id)
+    app.run(app.database_settings)
     sys.exit(0)
