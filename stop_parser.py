@@ -13,7 +13,11 @@ def form_stop_url(stop_id):
 def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, timeout, force_overwrite=False):
     url = form_stop_url(yandex_stop_id)
     stop_id = yandex_stop_id
-    print ("ID: " + yandex_stop_id)
+    
+    print("Time:", str(datetime.datetime.now()))
+    print()
+
+    print("ID: " + yandex_stop_id)
 
     #stop_id = 'stop__9647487' # Get from CLI instead, or make it a function.
     try:

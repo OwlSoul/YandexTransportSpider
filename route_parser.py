@@ -15,6 +15,9 @@ def parse_route(yandex_route_id, yandex_thread_id, db_settings, ytproxy_host, yt
     thread_id = yandex_thread_id
     url = form_route_url(route_id, thread_id)
 
+    print("Time:", str(datetime.datetime.now()))
+    print()
+
     print("ID:", route_id)
 
     try:
