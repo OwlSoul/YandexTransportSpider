@@ -12,6 +12,7 @@ import psycopg2
 import sys
 import time
 import argparse
+import os
 
 database_settings = {
     'db_name': 'yandex_transport',
@@ -67,6 +68,8 @@ if __name__ == '__main__':
                                      formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("-v", "--version", action="store_true", default=False,
                         help="show version info")
+    parser.add_argument("--route_beep", action="store_true", default=False,
+                        help="beep if route encountered")
     parser.add_argument("--database", metavar="DB_NAME", default=database_settings['db_name'],
                         help="Database name, default is " + database_settings['db_name'])
     parser.add_argument("--db_host", metavar="DB_HOST", default=database_settings['db_host'],
@@ -91,13 +94,22 @@ if __name__ == '__main__':
     database_settings["db_user"] = args.db_user
     database_settings["db_password"] = args.db_password
 
+    route_beep = args.route_beep
+
     delay_time = int(args.delay)
 
     while True:
         queue, stops_cnt, routes_cnt = get_queue(database_settings)
+        do_beep = False
         for i, line in enumerate(queue):
             print(i, ":", line)
+            if line[1]=='route':
+                do_beep = True
         print("Total stops in queue  :", stops_cnt)
         print("Total routes in queue :", routes_cnt)
         print("")
+        if do_beep:
+            duration = 0.2  # seconds
+            freq = 440  # Hz
+            os.system('play -nq -t alsa synth {} sine {}'.format(duration, freq))
         time.sleep(delay_time)

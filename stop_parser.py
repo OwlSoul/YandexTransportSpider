@@ -83,7 +83,7 @@ def parse_stop(yandex_stop_id, db_settings, ytproxy_host, ytproxy_port, timeout,
         region = data['data']['properties']['StopMetaData']['region']['name']
     except:
         print("No region name in data!")
-    print("Region:", region)
+    print("Region   :", region)
 
     print("")
 
