@@ -6,4 +6,15 @@
 
 ![Yandex Transport Spider](https://github.com/OwlSoul/Images/raw/master/YandexTransportSpider/screenshot-1.png)
  
-
+<details>
+<summary> Click for README in English language</summary>
+ Here be dragons
+ </details>
+ 
+ 
+<details>
+<summary> Нажмите для README на русском языке </summary>
+ Тут драконы
+ </details>
+ 
+ Конец.
