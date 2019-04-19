@@ -210,11 +210,11 @@ class Application:
         if res != 2:
             wait_time = random.randint(self.delay_lower, self.delay_upper)
             print("Waiting " + str(wait_time) + " secs.")
-            print("---------------------------------------------------------------------------------------------------")
-            print("")
             for i in range(0, wait_time):
                 if self.is_running:
                     time.sleep(1)
+        print("---------------------------------------------------------------------------------------------------")
+        print("")
 
 
         # Counter for retry in case of Exception

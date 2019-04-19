@@ -108,7 +108,7 @@ if __name__ == '__main__':
         print("Total stops in queue  :", stops_cnt)
         print("Total routes in queue :", routes_cnt)
         print("")
-        if do_beep:
+        if do_beep and route_beep:
             duration = 0.2  # seconds
             freq = 440  # Hz
             os.system('play -nq -t alsa synth {} sine {}'.format(duration, freq))

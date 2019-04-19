@@ -1,3 +1,11 @@
 Moscow Parsing:
 
 ./transport_spider.py stop__10187979 --database yandex_transport_moscow --delay_lower 10 --delay_upper 15
+
+Syktyvkar parsing (Done):
+
+./transport_spider.py 1680722687 --database yandex_transport_syktyvkar --delay_lower 10 --delay_upper 15
+
+Ekaterinburg parsing:
+
+./transport_spider.py stop__9810313 --database yandex_transport_ekaterinburg --delay_lower 10 --delay_upper 15

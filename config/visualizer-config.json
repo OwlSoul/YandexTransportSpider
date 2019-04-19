@@ -3,11 +3,11 @@
     "listen_port": 8090,
     "preload_data": false,
 
-    "city_name": "MOSCOW",
-    "center_coords": [55.7518, 37.6553],
+    "city_name": "YEKATERINBURG",
+    "center_coords": [56.8448, 60.6152],
     "center_zoom": 11,
 
-    "database": "yandex_transport_moscow",
+    "database": "yandex_transport_yekaterinburg",
     "db_host": "127.0.0.1",
     "db_port": 5432,
     "db_user": "yandex_transport",
