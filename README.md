@@ -8,8 +8,207 @@
  
 <details>
 <summary> Click for README in English language</summary>
- Here be dragons
- </details>
+ 
+ ## The hell is this?
+ 
+If you'll throw away the version "I'm an addict for watching at hure growing graphs", this is a "spider crawler" which will create the database of mass transit starting with the specifiet point, and reaching as far as it can, grabbing stops and routes in process. The data in database will be from Yandex - a lot of very tasty info, which you can later use **OFFLINE**.
+
+Small **isolated**(!!!) town (Yakutsk, Chita, Syktyvkar, Ky... Kyzyl, god bless it's soul) "the spider" will parse in about 6-12 hours with "1 request per munute" frequency. Why is it so important that the city is isolated? Well, if you start the spider somewhere in Yekaterinburg, it will eventually find a route to Chelyabinsk, Kurgan and, possibly, Perm (cities about 400km from starting point), and will go there. It is even scary to think about Moscow region. At the moment, "**THERE IS NO STOPPING THE SPIDER**", and it will not stop until it "devours" everything it can get.
+
+Spider can be stopped and resumed at any time, giving him the same starting point or another (he's smart, he can figure out things), just do not touch the database - spiders queue is also there (boo, BOOO, bad patterm, BOOO!). I personally run this thing at the moment in some big city, and in the evening I look at the huge graph and get my doze of excitement (I love huge graphs).
+
+Паука, кстати, можно остановить в любой момент, и потом продолжить указав новую стартовую точку, или ту же самую (он там сам разберется), главное не трогать и не изменять базу - очередь запросов он тоже хранит в ней (бууу, буууу, плохой паттерн, бууууу!!!). Я лично запускаю его на каком-то крупном городе когда выхожу из дома, а вечером прихожу и "прусь на разросшийся граф".
+
+## How do I shot web? Making the spider work.
+ 
+ Spider needs three things:
+ 1. Working internet connection (duh)
+ 2. Working and available [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy)
+ 3. Specially prepared Database (PostgreSQL)
+ 
+### Запуск Yandex Transport Proxy
+
+The best way is to run Yandex Transport Proxy inat the same machine inside docker container:
+
+```
+docker pull owlsoul/ytproxy:latest
+docker run -t -d --name ytproxy --restart unless-stopped -p 25555:25555 owlsoul/ytproxy:latest
+```
+
+Done.
+
+### Preparing the database (PostgreSQL)
+
+Let's create a user:
+
+```
+CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
+```
+
+Now, we can create a database, fill it with required tables, and give the user **UNLIMITED POWER**!
+```
+CREATE DATABASE yandex_transport;
+
+\c yandex_transport;
+
+CREATE TABLE stops (
+    stop_id varchar PRIMARY KEY,
+    name varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE ROUTES (
+    route_id varchar PRIMARY KEY,
+    thread_id varchar,
+    name varchar,
+    type varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE queue (
+    id serial PRIMARY KEY,
+    type varchar,
+    data_id varchar,
+    thread_id varchar
+);
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON DATABASE yandex_transport TO yandex_transport;
+```
+
+By default the spider will work with this database, user and password.
+
+### Launching the spider
+Spider needs [YandexTransportWebdriverAPI-Python](https://github.com/OwlSoul/YandexTransportWebdriverAPI-Python) library, and a little of other stuff.
+
+```
+pip3 install psycopg2-binary
+pip3 install yandex_transport_webdriver_api
+```
+
+Let's launch the spider, for example, from the stop ["Chkalov Street"("Улица Чкалова")](https://yandex.ru/maps/19/syktyvkar/?ll=50.808973%2C61.678116&masstransit%5BstopId%5D=1680722687&mode=stop&z=16) in Syktyvkar city:
+
+```
+./transport_spider.py 1680722687 --database yandex_transport
+```
+
+Watch the spider crawl! It'll finish in like... 16 hours, and you'll get the database of ALL public transit in Syktyvkar (by Yandex version, be warned that Yandex may not know something).
+
+### About database
+In tables _stops_ and _routes_ there is a field _data_ with type _jsonb_. This is the field spider writes JSON data from yandex to, and it contains possible all required info for route (trajectory, stops) and stop (coordinates, passing routes). Yandex is constantly changing its JSON, so documenting it is a monkey job, but it's quite readable. You can get the examples [here](https://github.com/OwlSoul/YandexTransportProxy/wiki), the spider uses methods [getStopInfo](https://github.com/OwlSoul/YandexTransportProxy/wiki/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80:-getStopInfo) and [getRouteInfo](https://github.com/OwlSoul/YandexTransportProxy/wiki/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80:-getRouteInfo).
+
+#### Table structure - stops :
+_stop_id_ - stop ID  \
+_name_ - stop name \
+_region_ - stop region \
+_timestamp_ - time, when stop was added to database \
+_data_ - JSON answer from Yandex getStopInfo \
+
+#### Table structure - routes:
+_route_id_ - route ID  \
+_type_ - route type (bus, minibus etc) \
+_name_ - route name \
+_region_ - not used, to be removed
+_timestamp_ - time, when stop was added to database \
+_data_ - JSON answer from Yandex getRouteInfo \
+
+#### Таблица queue:
+Это очередь запросов для "паука", лучше эту штуку не трогать.
+
+_id_ - ID sequence number
+_type_ - query type, 'stop' or 'route' \
+_data_id_ - there will be _stop_id_ for the stop, or _route_id_ for the route \
+_thread_id_ - route needs the Thread ID of the "line" for identification\
+
+### Spider CLI parameters
+
+```
+positional arguments:
+  stop_id              Starting stop ID
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -v, --version        show version info
+  --ytproxy_host HOST  Yandex Transport Proxy host, default is 127.0.0.1
+  --ytproxy_port PORT  Yandex Transport Proxy port, default is 25555
+  --database DB_NAME   Database name, default is yandex_transport
+  --db_host DB_HOST    Database host, default is localhost
+  --db_port DB_PORT    Database port, default is 5432
+  --db_user DB_USER    Database username, default is yandex_transport
+  --db_password PASS   Database password, default is password
+  --delay_lower D_LOW  Lower threshold of delay, default is 40
+  --delay_upper D_UP   Upper threshold of delay, default is 60
+```
+You need to specity _stop_id_. How to get it? Pretty easy. You need to click on desired stop in Yandex.Maps and check the URL. \
+For example, the stop "Melody Shop" in Khmki city:
+
+https://yandex.ru/maps/10758/himki/?ll=37.438354%2C55.891513&masstransit%5BstopId%5D=stop__9680782&mode=stop&z=19
+The stop_id is **stop__9680782**. There is no logic in stopID and routeID names, it can be a pretty bizzare string, so it is not possible to parse Yandex Masstransit database using brute force.
+
+The delay between queries (by default - random delay about 1 min) is controlled by _--delay_lower_ and _--delay_upper_.
+
+## Visualizer
+
+Visuzlizer is not pretending to be a masterpiece of WebDev, it is a horrible and terrible thing created from duct tape and WD40 just to watch the spider working, and to see "what did you get into my precious database". It is also _"My first GoLang app"_ ©®™, _patent pending_, that's why it is... like it is. 
+
+Visualizer requires two libraries:
+
+```
+go get github.com/lib/pq
+go get github.com/tidwall/gjson
+```
+
+The configuration is in _config/visualizer-config.json_:
+
+```
+{
+    "listen_host": "127.0.0.1",  
+    "listen_port": 8090,
+    "preload_data": false,
+
+    "city_name": "KYZYL",
+    "center_coords": [51.6959, 94.4709],
+    "center_zoom": 12,
+
+    "database": "yandex_transport_kyzyl",
+    "db_host": "127.0.0.1",
+    "db_port": 5432,
+    "db_user": "yandex_transport",
+    "db_password": "password",
+
+    "draw_delay": 5,
+    "update_interval": 60
+}
+```
+
+_listen_host_ - the host to listen on \
+_listen_port_ - the port to listen on \
+_preload_data_ - set **true** if you need to display the completed database, in this case backend will fetch data from the base once and will be ready to show it. If there is **false**, database will be fetched with each request from frontend, this is suitable for visualizing the "work in progress", and this part of code is heavily non-optimized.
+
+_city_name_ - the name of city to display \
+_сenter_coords - center coordinates at launch \
+_сenter_zoom_ - map zoom at launch \
+
+Database parameters are obvious
+
+_draw_delay_ - deley in ms between drawing two objects on map
+_update_interval_ - delay in seconds between database fetch (used in case of _"preload_data": false_)
+
+## Launching the visualizer
+
+```
+go run visualizer-backend.go
+```
+
+Now navigate yourself to http://localhost:8090/leaflet/leaflet.html and witness the GRAPH.
+
+</details>
  
  
 <details>
@@ -25,10 +224,10 @@
 
  ## И как заставить его работать?
  
- Пауку для работы нужны три вещи:
+ Пауку для работы нужны три вещи:http://owlsoul.biz.tm:10001/leaflet/leaflet.html
  1. Работающий интернет (duh)
  2. Запущенный и доступный по сети [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy)
- 3. Подготовленная база данных.
+ 3. Подготовленная база данных PostgreSQL.
  
 ### Запуск Yandex Transport Proxy
 
@@ -41,7 +240,7 @@ docker run -t -d --name ytproxy --restart unless-stopped -p 25555:25555 owlsoul/
 
 Готово.
 
-### Готовим пауку базу данных
+### Готовим пауку базу данных (PostgreSQL)
 
 Создаем пользователя:
 
@@ -49,7 +248,7 @@ docker run -t -d --name ytproxy --restart unless-stopped -p 25555:25555 owlsoul/
 CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
 ```
 
-Создаем базу данных, и заполняем ее нужными таблицами, потом даем созданному пользователю абсолютную ВЛАСТЬ:
+Создаем базу данных, и заполняем ее нужными таблицами, потом даем созданному пользователю абсолютную **ВЛАСТЬ**:
 ```
 CREATE DATABASE yandex_transport;
 
@@ -165,7 +364,7 @@ https://yandex.ru/maps/10758/himki/?ll=37.438354%2C55.891513&masstransit%5BstopI
 
 Визуализатор ни в коем случае не претендует на какие-то почести в мире ВебДева, это ужасная и уродливая штука собранная на коленке с адской архитектурой просто чтобы следить за работой паука, или посмотреть что оно там натянуло в базу. А еще это _"мое первое приложение на GoLang"_ ©®™, _patent pending_, поэтому... поэтому он такой какой он есть.
 
-Визуализатору требуются двае сторонние библиотеки:
+Визуализатору требуются две сторонние библиотеки:
 ```
 go get github.com/lib/pq
 go get github.com/tidwall/gjson
