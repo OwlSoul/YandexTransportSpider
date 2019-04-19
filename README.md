@@ -35,6 +35,64 @@ docker pull owlsoul/ytproxy:latest
 docker run -t -d --name ytproxy --restart unless-stopped -p 25555:25555 owlsoul/ytproxy:latest
 ```
 
+Готово.
+
+### Готовим пауку базу данных
+
+Создаем пользователя:
+
+```
+CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
+```
+
+Создаем базу данных, и заполняем ее нужными таблицами, потом даем созданному пользователю абсолютную ВЛАСТЬ:
+```
+CREATE DATABASE yandex_transport;
+
+\c yandex_transport;
+
+CREATE TABLE stops (
+    stop_id varchar PRIMARY KEY,
+    name varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE ROUTES (
+    route_id varchar PRIMARY KEY,
+    thread_id varchar,
+    name varchar,
+    type varchar,
+    region varchar,
+    timestamp timestamptz,
+    data jsonb
+);
+
+CREATE TABLE queue (
+    id serial PRIMARY KEY,
+    type varchar,
+    data_id varchar,
+    thread_id varchar
+);
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
+GRANT ALL PRIVILEGES ON DATABASE yandex_transport TO yandex_transport;
+```
+
+Паук по умолочанию будет работать именно с этой базой и с таким паролем.
+
+### Запуск самого паука
+
+Пауку нужна библиотека [YandexTransportWebdriverAPI-Python](https://github.com/OwlSoul/YandexTransportWebdriverAPI-Python), ну и еще там до кучи барахла всякого, немного.
+
+```
+pip3 install psycopg2-binary
+pip3 install yandex_transport_webdriver_api
+```
+
  </details>
  
  Конец.
