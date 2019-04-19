@@ -4,7 +4,7 @@
 
 **RU:** Это своеобразный "поисковый паук", но для систем общественного транспорта (на данных Yandex Transport). Он стартует с той остановки которую вы ему указали, и начинает "расползаться" куда дотянется, собирая в процессе все близлежащие остановки и маршруты. Проект абсолютно на "повеселиться", и демонстрирует возможности [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy).
 
-![Yandex Transport Spider](https://github.com/OwlSoul/Images/raw/master/YandexTransportSpider/screenshot-1.png)
+![Yandex Transport Spider](https://github.com/OwlSoul/Images/raw/master/YandexTransportSpider/screenshot-yakutsk.png)
  
 <details>
 <summary> Click for README in English language</summary>
