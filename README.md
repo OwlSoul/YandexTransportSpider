@@ -373,7 +373,7 @@ go get github.com/lib/pq
 go get github.com/tidwall/gjson
 ```
 
-Конфигурация визцализатора находится в файле config/visualizer-config.json:
+Конфигурация визуализатора находится в файле config/visualizer-config.json:
 
 ```
 {
