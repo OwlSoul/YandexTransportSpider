@@ -93,6 +93,14 @@ pip3 install psycopg2-binary
 pip3 install yandex_transport_webdriver_api
 ```
 
+Запускаем паука, например с остановки ["Улица Чкалова"](https://yandex.ru/maps/19/syktyvkar/?ll=50.808973%2C61.678116&masstransit%5BstopId%5D=1680722687&mode=stop&z=16) в Сыктывкаре:
+
+```
+./transport_spider.py 1680722687 --database yandex_transport
+```
+
+Все, паук пополз. Часов через 16 закончит.
+
  </details>
  
  Конец.
