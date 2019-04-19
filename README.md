@@ -4,7 +4,7 @@
 
 **RU:** Это своеобразный "поисковый паук", но для систем общественного транспорта (на данных Yandex Transport). Он стартует с той остановки которую вы ему указали, и начинает "расползаться" куда дотянется, собирая в процессе все близлежащие остановки и маршруты. Проект абсолютно на "повеселиться", и демонстрирует возможности [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy), и может быть использован для "дампа" базы данных общественного транспорта Яндекса (вот это уже достаточно серьезно).
 
-_**IMPORTANT:**_ The "core essence" of the project is getting the info, not visuzalizing it. \
+_**IMPORTANT:**_ The "core idea" of the project is getting the info, not visuzalizing it. \
 _**ВАЖНО:**_ Суть проекта в получении данных, а не в их визуализации. 
 
 [ The image is "clickable" / Картинка "кликабельна" ](http://owlsoul.biz.tm:10001/leaflet/leaflet.html)
