@@ -1,6 +1,6 @@
 # YandexTransportSpider
 
-*This is the fun and a little bit childish zone of this GitHub account. Why so serious?*
+*Why so serious?*
 
 **EN:** This is a "spider crawler" for Yandex Transport. It will start with a given stop, and will "crawl" to any part it can, looking for nearby stops and routes. This is a "for fun" project which also kinda demonstrates capabilities of [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy).
 
