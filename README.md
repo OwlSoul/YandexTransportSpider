@@ -229,7 +229,7 @@ Now navigate yourself to http://localhost:8090/leaflet/leaflet.html and witness 
 
  ## И как заставить его работать?
  
- Пауку для работы нужны три вещи:http://owlsoul.biz.tm:10001/leaflet/leaflet.html
+ Пауку для работы нужны три вещи:
  1. Работающий интернет (duh)
  2. Запущенный и доступный по сети [Yandex Transport Proxy](https://github.com/OwlSoul/YandexTransportProxy)
  3. Подготовленная база данных PostgreSQL.
