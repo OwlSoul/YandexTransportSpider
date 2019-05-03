@@ -79,6 +79,13 @@ CREATE TABLE queue (
     thread_id varchar
 );
 
+CREATE TABLE errors (
+    id varchar PRIMARY KEY,
+    type varchar,
+    timestamp timestamptz,
+    error varchar
+);
+
 GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO yandex_transport;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO yandex_transport;
@@ -280,6 +287,13 @@ CREATE TABLE queue (
     type varchar,
     data_id varchar,
     thread_id varchar
+);
+
+CREATE TABLE errors (
+    id varchar PRIMARY KEY,
+    type varchar,
+    timestamp timestamptz,
+    error varchar
 );
 
 GRANT ALL PRIVILEGES ON SCHEMA public TO yandex_transport;
