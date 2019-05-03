@@ -17,6 +17,7 @@ import signal
 import time
 import sys
 import random
+import datetime
 
 class Application:
     def __init__(self):
@@ -127,6 +128,36 @@ class Application:
             print("Exception (delete queue item in get_queue_size):" + str(e))
             pass
         return result
+
+    def put_error_in_database(self, db_settings, id, error_type, error):
+        try:
+            conn = psycopg2.connect(dbname=db_settings['db_name'],
+                                    host=db_settings['db_host'],
+                                    user=db_settings['db_user'],
+                                    port=db_settings['db_port'],
+                                    password=db_settings['db_password'])
+        except Exception as e:
+            print("Exception (connect to database in put_error_in_database):" + str(e))
+            return 1
+
+        cur = conn.cursor()
+        print("Putting error into database...")
+        sql_query = "INSERT INTO errors(id, type, error, timestamp) " \
+                    "VALUES (" + \
+                    "'" + id.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
+                    "'" + error_type.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
+                    "'" + error.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
+                    "TIMESTAMP '" + str(datetime.datetime.now()) + \
+                    ")"
+        try:
+            cur.execute(sql_query)
+        except Exception as e:
+            print("Exception (insert error):" + str(e))
+            return 1
+
+        conn.commit()
+        cur.close()
+        conn.close()
 
     def sigint_handler(self, sig, _):
         """
@@ -240,9 +271,16 @@ class Application:
 
             if res == 1:
                 retry_counter += 1
+                print("Retry: ", str(retry_counter) + "/" + str(self.retry_limit))
                 if retry_counter > self.retry_limit:
-                    print("There is a problem with getting data from the server, aborting spider for now")
-                    sys.exit(1)
+                    # This was before, now we'll add the stop to the database instead
+                    #print("There is a problem with getting data from the server, aborting spider for now")
+                    #sys.exit(1)
+                    res = self.put_error_in_database(db_settings, query_data_id, query_type, '')
+                    if res != 0:
+                        print("Error putting error in database! Spider will stop now.")
+                        sys.exit(1)
+                    self.delete_from_queue(db_settings, query_type, query_data_id)
                 else:
                     print("Failed to get data, spider will chillax and relax for " +
                           str(self.retry_sleep) +

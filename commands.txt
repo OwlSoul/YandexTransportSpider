@@ -8,4 +8,4 @@ Syktyvkar parsing (Done):
 
 Ekaterinburg parsing:
 
-./transport_spider.py stop__9810313 --database yandex_transport_ekaterinburg --delay_lower 10 --delay_upper 15
+./transport_spider.py stop__9810313 --database yandex_transport_yekaterinburg --delay_lower 10 --delay_upper 15
