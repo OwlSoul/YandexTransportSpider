@@ -147,7 +147,7 @@ class Application:
                     "'" + id.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
                     "'" + error_type.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
                     "'" + error.translate(str.maketrans({"'": r"''"})) + "'" + "," + \
-                    "TIMESTAMP '" + str(datetime.datetime.now()) + \
+                    "TIMESTAMP '" + str(datetime.datetime.now()) + "'" \
                     ")"
         try:
             cur.execute(sql_query)
