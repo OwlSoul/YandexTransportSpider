@@ -7,7 +7,7 @@ import psycopg2
 from yandex_transport_webdriver_api import YandexTransportProxy
 
 def form_route_url(route_id, thread_id):
-    return 'https://yandex.ru/maps/?masstransit[routeId]=' + route_id + '&' + \
+    return 'https://yandex.ru/maps/?masstransit[lineId]=' + route_id + '&' + \
             'masstransit[threadId]=' + thread_id
 
 def parse_route(yandex_route_id, yandex_thread_id, db_settings, ytproxy_host, ytproxy_port, timeout, force_overwrite=False):
