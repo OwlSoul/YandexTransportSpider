@@ -50,6 +50,8 @@ CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
 
 Now, we can create a database, fill it with required tables, and give the user **UNLIMITED POWER**!
 ```
+CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
+
 CREATE DATABASE yandex_transport;
 
 \c yandex_transport;
@@ -260,6 +262,8 @@ CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
 
 Создаем базу данных, и заполняем ее нужными таблицами, потом даем созданному пользователю абсолютную **ВЛАСТЬ**:
 ```
+CREATE USER yandex_transport WITH ENCRYPTED PASSWORD 'password';
+
 CREATE DATABASE yandex_transport;
 
 \c yandex_transport;
