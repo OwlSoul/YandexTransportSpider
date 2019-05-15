@@ -52,7 +52,7 @@ def parse_route(yandex_route_id, yandex_thread_id, db_settings, ytproxy_host, yt
         print("Getting data...")
         proxy = YandexTransportProxy(ytproxy_host, ytproxy_port)
         print("URL:", url)
-        data = proxy.get_route_info(url, timeout=timeout)
+        data = proxy.line(url, timeout=timeout)
         #data = json.load(open('route_troll_10_nsk.json', 'r', encoding='utf-8'))
     except Exception as e:
         print("Exception (obtain data):" + str(e))
